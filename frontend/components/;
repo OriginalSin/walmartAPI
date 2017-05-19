@@ -1,0 +1,122 @@
+const React = require('react');
+const ProductRow = require('./productRow')
+
+module.exports = React.createClass({
+  getInitialState(){
+    return({
+      products: this.props.products,
+      sort: "BrandNameAsc"
+    })
+  },
+
+  componentWillReceiveProps( props ){
+    this.setState({
+      products: props.products,
+      sortBy: props.sortedBy
+    })
+  },
+
+  getIndex(){
+    if( this.state.products.length < 25 ){
+      return this.state.products.length
+    }else{
+      return 25
+    }
+  },
+
+  getProductCount(){
+    return this.state.products.length
+  },
+
+  sortByBrand( names ){
+    let result = [];
+    for (var i = 0; i < names.length; i++) {
+      let name = names[i];
+      let product = this.state.products[name];
+      if( product.brand ){
+        result.unshift( product );
+      }else{
+        result.pudh(product )
+      }
+    }
+  },
+
+  getNames(){
+    let names = Object.keys( this.state.products );
+    if( !this.state.sort ){
+      return(
+        names
+      )
+    }else if( this.state.sort === "BrandNameAsc" ){
+      names = this.sortByBrand( names );
+      return names;
+    // }else if( this.state.sort === "BrandNameDesc" ){
+    //   names = this.sortByBrand();
+    //   names = names.reverse();
+    //   return names;
+    // }else if( this.state.sort === "CategoryAsc" ){
+    //   names = this.sortByCat();
+    //   return names;
+    // }else if( this.state.sort === "CategoryDesc" ){
+    //   names = this.sortByCat();
+    //   names = names.reverse();
+    //   return names;
+    // }else if( this.state.sort === "PriceAsc" ){
+    //   names = this.sortByPrice();
+    //   names = names.reverse();
+    //   return names;
+    // }else if( this.state.sort === "PriceDesc" ){
+    //   names = this.sortByPrice;
+    //   names = names.reverse();
+    //   return names;
+    // }else if( this.state.sort === "MSRPAsc" ){
+    //   names = this.sortByMSRP;
+    //   return names;
+    // }else if( this.state.sort === "MSRPDesc" ){
+    //   names = this.sortByMSRP;
+    //   names = names.reverse();
+    //   return names;
+    // }else if( this.state.sort === "ReviewsAsc" ){
+    //   names = this.sortByReview();
+    //   return names;
+    // }else if( this.state.sort === "ReviewsDesc" ){
+    //   names = this.sortByReview();
+    //   names = names.reverse();
+    //   return names;
+    }
+  },
+
+  products(){
+    let names = this.getNames();
+    if( this.state.products ){
+
+    }
+  },
+
+  render(){
+    return(
+      <div>
+        <div className = "centered-wide filters">
+          <div className = "col-md-5">
+            <div className = "filter-tag light">Search:</div>
+            <input className = "filter-input"></input>
+          </div>
+          <div className = "ml-3 col-xs-offset-5 grey italic">
+            Showing { this.getIndex() } of { this.getProductCount() }
+          </div>
+        </div>
+        <div className = "centered-wide product-head">
+          <div className = "row light col-md-4">Product</div>
+          <div className = "row light col-md-2">Brand Name</div>
+          <div className = "row light col-md-2">Category</div>
+          <div className = "row light col-md-1">Price</div>
+          <div className = "row light col-md-1">MSRP</div>
+          <div className = "row light col-md-1 no-border">Reviews</div>
+        </div>
+        {
+          this.products()
+        }
+      </div>
+    )
+  }
+})
