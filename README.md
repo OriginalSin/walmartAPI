@@ -8,7 +8,7 @@ Run ``` npm run webpack ```.
 Run ``` open index.html ```.
 ## *Query* ##
 The only required text input. This field defines your query.
-## Brand Name ##
+## *Brand Name* ##
 Filling in this field will only return results associated with a certain brand.
 ## *Results* ##
 Filling in this field will define a certain number of results. The API's maximum number is 25, but if a number higher than 25 is specified, the script will run and concatenate as many results as needed to reach the desired target length. The default value is 25.  
