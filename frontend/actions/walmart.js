@@ -3,8 +3,8 @@ const Constants = require('../constants/constants');
 const Dispatcher = require('../dispatcher/dispatcher');
 
 module.exports = {
-  queryProduct: function( query, brand, start, results ){
-    GetAllProducts.startQuery( query, brand, start, results, this.receiveProducts );
+  queryProduct: function( query, brand, sort, start, results ){
+    GetAllProducts.startQuery( query, brand, sort, start, results, this.receiveProducts );
   },
 
   checkLocalStorage(){

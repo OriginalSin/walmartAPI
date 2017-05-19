@@ -198,9 +198,20 @@ body{
 .width-5{
   width: 10%;
 }
+.inline{
+  display: inline;
+}
 
 .width-5.no-border{
   border: 0px;
+}
+
+.margin-left-10px{
+  margin-left: 10px;
+}
+
+.margin-right-10px{
+  margin-right: 10px;
 }
 
 .overlay{

@@ -35,6 +35,7 @@ module.exports = React.createClass({
         </input>
         <div className = "button search-button" onClick = { this.props.checkQuery }>Add Products</div>
         <Advanced
+          changeSort = { this.props.changeSort }
           changeBrandName = { this.props.changeBrandName }
           changeResults = { this.props.changeResults }
           changeStart = { this.props.changeStart }

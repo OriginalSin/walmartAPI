@@ -77,13 +77,13 @@ module.exports = React.createClass({
           className = "advanced"
           style = { this.getMenuStyle() }>
           <input
-            className = "advanced-input"
+            className = "advanced-input advanced-input-small"
             placeholder = "Brand Name"
             value = { this.state.brandName }
             onChange = { this.props.changeBrandName }>
           </input>
           <input
-            className = "advanced-input"
+            className = "advanced-input advanced-input-small"
             placeholder = "Result"
             value = { this.state.results }
             onChange = { this.props.changeResults }>
@@ -94,6 +94,15 @@ module.exports = React.createClass({
             value = { this.state.start }
             onChange = { this.props.changeStart }>
           </input>
+          <div className = "inline margin-left-10px margin-right-10px">Sort By:</div>
+          <select className = "advaned-input-small" onChange = { this.props.changeSort }>
+            <option value = "relevance">Relevance</option>
+            <option value = "price">Price</option>
+            <option value = "title">Title</option>
+            <option value = "bestseller">Bestselling</option>
+            <option value = "customerRating">Customer Rating</option>
+            <option value = "new">Newest</option>
+          </select>
         </div>
         <div
           style = { this.getLinkStyle() }

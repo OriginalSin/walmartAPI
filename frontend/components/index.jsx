@@ -15,7 +15,7 @@ var Index = React.createClass({
       brandName: "",
       start: "",
       results: "",
-      sortedBy: "Relevance",
+      sortedBy: "relevance",
       products: {},
     }
   },
@@ -55,7 +55,7 @@ var Index = React.createClass({
       }else{
         results = this.state.results
       }
-      Walmart.queryProduct( this.state.query, this.state.brandName, start, results );
+      Walmart.queryProduct( this.state.query, this.state.brandName, this.state.sortedBy, start, results );
       this.setState({ loading: true })
     }
   },
@@ -88,6 +88,10 @@ var Index = React.createClass({
     this.setState({ query: e.target.value });
   },
 
+  changeSort( e ){
+    this.setState({ sortedBy: e.target.value });
+  },
+
   changeBrandName( e ){
     this.setState({ brandName: e.target.value })
   },
@@ -108,6 +112,7 @@ var Index = React.createClass({
     return(
       <div>
         <Head
+          changeSort = { this.changeSort }
           advanced = { this.state.advanced }
           toggleAdvanced = { this.toggleAdvanced }
           checkQuery = { this.checkQuery }
