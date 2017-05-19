@@ -1,6 +1,6 @@
 # Walmart API Search tool #
 *A tool for searching Walmart products using the Walmart API*
-## Install ##
+# Install #
 Upon downloading the repository, open up terminal and run ``` npm install ```.
 ### Then ###
 Run ``` npm run webpack ```.
